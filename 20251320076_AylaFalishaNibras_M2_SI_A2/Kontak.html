@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>BukuKita - Kontak</title>
+</head>
+<body>
+
+    <h1>Selamat Datang di BukuKita!</h1>
+
+    <h2>Toko Buku Online Terlengkap</h2>
+
+    <nav>
+        <a href="beranda.html">Beranda</a> |
+        <a href="katalog.html">Katalog</a> |
+        <a href="promo.html">Promo</a> |
+        <a href="tentang.html">Tentang Kami</a> |
+        <a href="kontak.html">Kontak</a>
+    </nav>
+
+    <hr>
+
+    <h3>Hubungi Kami</h3>
+
+    <!-- FORM KONTAK -->
+    <form id="formKontak" onsubmit="kirimPesan(event)">
+
+        <label>Nama Lengkap:</label><br>
+        <input type="text" id="nama" name="nama" required>
+
+        <br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" required>
+
+        <br><br>
+
+        <label>Nomor Telepon:</label><br>
+        <input type="tel" name="telepon" required>
+
+        <br><br>
+
+        <label>Topik Pesan:</label><br>
+
+        <select name="topik" required>
+            <option value="">-- Pilih Topik --</option>
+            <option>Pertanyaan Umum</option>
+            <option>Pemesanan Buku</option>
+            <option>Keluhan</option>
+            <option>Kerja Sama</option>
+        </select>
+
+        <br><br>
+
+        <label>Pesan Anda:</label><br>
+
+        <textarea name="pesan" rows="5" cols="30" required></textarea>
+
+        <br><br>
+
+        <label>
+            Bagaimana Anda Mengetahui Kami? (Pilih satu)
+        </label>
+
+        <br><br>
+
+        <input type="radio" name="sumber" value="media-sosial" required>
+        Media Sosial
+
+        <br>
+
+        <input type="radio" name="sumber" value="mesin-pencari">
+        Mesin Pencari
+
+        <br>
+
+        <input type="radio" name="sumber" value="rekomendasi">
+        Rekomendasi Teman
+
+        <br>
+
+        <input type="radio" name="sumber" value="lainnya">
+        Lainnya
+
+        <br><br>
+
+        <input type="checkbox" name="syarat" required>
+        Setujui Syarat & Ketentuan
+
+        <br><br>
+
+        <button type="submit">Kirim Pesan</button>
+
+    </form>
+
+
+    <!-- HALAMAN KONFIRMASI -->
+    <div id="pesanBerhasil" style="display: none;">
+
+        <h1>Pesan Berhasil Dikirim!</h1>
+
+        <p>
+            Terima kasih, <span id="namaPengirim"></span>.
+        </p>
+
+        <p>
+            Telah menghubungi BukuKita. Pesan Anda telah berhasil
+            dikirim dan akan kami proses.
+        </p>
+
+        <a href="beranda.html">Kembali ke Beranda</a>
+
+    </div>
+
+
+    <script>
+
+        function kirimPesan(event) {
+
+            event.preventDefault();
+
+            // Mengambil nama yang diisi pengguna
+            var nama = document.getElementById("nama").value;
+
+            // Menampilkan nama pada halaman konfirmasi
+            document.getElementById("namaPengirim").textContent = nama;
+
+            // Menyembunyikan form
+            document.getElementById("formKontak").style.display = "none";
+
+            // Menampilkan pesan berhasil
+            document.getElementById("pesanBerhasil").style.display = "block";
+        }
+
+    </script>
+
+</body>
+</html>
